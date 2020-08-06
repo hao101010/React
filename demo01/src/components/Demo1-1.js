@@ -1,4 +1,5 @@
 import React,{Component,Fragment} from 'react'
+import Xiaojia from './ul-component'
 
 class demo1 extends Component{
   constructor(props) {
@@ -19,9 +20,8 @@ class demo1 extends Component{
           {
             this.state.list.map((item,index) => {
               return (
-                <li key={index} onClick={this.deleteList.bind(this,index)}>
-                  {item}
-                </li>
+                <Xiaojia key={index} content={item} index={index}
+                  deleteList = {this.deleteList.bind(this)}/>
               )
             })
           }
