@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Demo1 from './components/Demo1-1'
+import Calculator from './components/temperature'
 
-ReactDOM.render(<Demo1 />,document.getElementById('root'))
+ReactDOM.render(<Calculator />, document.getElementById('root'))
