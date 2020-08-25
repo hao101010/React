@@ -32,5 +32,10 @@ export default (state = defaultState, action) => {
         newState.list.splice(action.index, 1)
         return newState
     }
+    if (action.type === 'getlist') {
+        let newState = JSON.parse(JSON.stringify(state))
+        console.log(newState)
+        return newState
+    }
     return state
 }
