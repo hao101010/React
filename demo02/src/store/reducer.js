@@ -34,7 +34,7 @@ export default (state = defaultState, action) => {
     }
     if (action.type === 'getlist') {
         let newState = JSON.parse(JSON.stringify(state))
-        console.log(newState)
+        newState.list = action.data
         return newState
     }
     return state

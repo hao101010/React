@@ -38,9 +38,8 @@ const getTodoList = () => {
                 let arr = []
                 list.forEach(item => {
                     arr.push(item.proName)
-                });
-                // console.log(arr)
-                const action = getListAction(list)
+                })
+                const action = getListAction(arr)
                 dispatch(action)
 
             })
