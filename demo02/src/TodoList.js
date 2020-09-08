@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import store from './store'
-import { changeInputAction, addItemAction, delItemAction, getTodoList } from './store/actionCreate'
+import { changeInputAction, addItemAction, delItemAction, getMyListAction } from './store/actionCreate'
 import TodoListUI from './TodoListUI'
 // import Axios from 'axios';
 
@@ -27,6 +27,10 @@ class TodoList extends Component {
         )
     }
     componentDidMount() {
+        const action = getMyListAction()
+        store.dispatch(action)
+
+
         // const data = { "sponsor": "luojiahao", "proName": "", "proCode": "", "proType": "", "page": 1, "row": 16 }
         // Axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList')
         //     .then(res => {
