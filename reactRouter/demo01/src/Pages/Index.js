@@ -11,7 +11,7 @@ class Index extends Component {
                 { cid: 567, title: 'react学习第三步' }
             ]
         }
-        this.props.history.push('/home/')
+        // this.props.history.push('/home/')
     }
     render() {
         return (

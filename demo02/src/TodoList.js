@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import store from './store'
 import { changeInputAction, addItemAction, delItemAction, getMyListAction } from './store/actionCreate'
 import TodoListUI from './TodoListUI'
-// import Axios from 'axios';
 
 class TodoList extends Component {
     constructor(props) {
@@ -12,12 +11,14 @@ class TodoList extends Component {
         this.storeChange = this.storeChange.bind(this)
         this.clickBtn = this.clickBtn.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
+        // 设置监听函数，监听state变化时更新视图
         store.subscribe(this.storeChange)
     }
     render() {
         return (
 
             <TodoListUI
+                // 向子组件传值、传递方法
                 placeholderValue={this.state.placeholderValue}
                 changeInputValue={this.changeInputValue}
                 clickBtn={this.clickBtn}
@@ -27,22 +28,17 @@ class TodoList extends Component {
         )
     }
     componentDidMount() {
+        // 获取action
         const action = getMyListAction()
+        // 发出action
         store.dispatch(action)
-
-
-        // const data = { "sponsor": "luojiahao", "proName": "", "proCode": "", "proType": "", "page": 1, "row": 16 }
-        // Axios.get('https://www.easy-mock.com/mock/5cfcce489dc7c36bd6da2c99/xiaojiejie/getList')
-        //     .then(res => {
-        //         console.log(res)
-        //     })
-        // const action = getTodoList()
-        // store.dispatch(action)
     }
+    // 监听input框内输入变化
     changeInputValue(e) {
         const action = changeInputAction(e.target.value)
         store.dispatch(action)
     }
+    // store.getState()获取store中的数据，并this.setState()注入到当前state中
     storeChange() {
         this.setState(store.getState())
     }

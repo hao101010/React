@@ -11,31 +11,27 @@ const defaultState = {
 export default (state = defaultState, action) => {
     // console.log(state, action)
     // reducer内只能接收到state，不能对state进行修改
-    if (action.type === 'changeInput') {
-        let newState = JSON.parse(JSON.stringify(state))
-        newState.placeholderValue = action.value
-        return newState
+    let newState = JSON.parse(JSON.stringify(state))
+    switch (action.type) {
+        case 'changeInput':
+            newState.placeholderValue = action.value
+            return newState
+        case 'addItem':
+            if (newState.placeholderValue) {
+                newState.list.push(newState.placeholderValue)
+            } else {
+                alert('输入为空')
+            }
+            newState.placeholderValue = ''
+            return newState
+        case 'delItem':
+            newState.list.splice(action.index, 1)
+            return newState
+        case 'getlist':
+            newState.list = action.data
+            return newState
+        default:
+            return state
     }
-    if (action.type === 'addItem') {
-        let newState = JSON.parse(JSON.stringify(state))
-        if (newState.placeholderValue) {
-            newState.list.push(newState.placeholderValue)
-        } else {
-            alert('输入为空')
-        }
 
-        newState.placeholderValue = ''
-        return newState
-    }
-    if (action.type === 'delItem') {
-        let newState = JSON.parse(JSON.stringify(state))
-        newState.list.splice(action.index, 1)
-        return newState
-    }
-    if (action.type === 'getlist') {
-        let newState = JSON.parse(JSON.stringify(state))
-        newState.list = action.data
-        return newState
-    }
-    return state
 }
