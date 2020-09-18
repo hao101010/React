@@ -42,7 +42,6 @@ const getTodoList = () => {
                 })
                 const action = getListAction(arr)
                 dispatch(action)
-
             })
     }
 }

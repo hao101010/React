@@ -12,8 +12,13 @@ export default (state = defaultState, action) => {
             return newState
         case 'btnclick':
             let list = newState.list
-            list.push(newState.inputValue)
-            newState.inputValue = ''
+            if (newState.inputValue != '') {
+                list.push(newState.inputValue)
+                newState.inputValue = ''
+            } else {
+                alert('输入为空')
+            }
+
             newState.list = list
             return newState
         case 'deleteitem':

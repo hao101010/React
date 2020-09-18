@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import store from './store'
-import { changeInputAction, addItemAction, delItemAction, getMyListAction } from './store/actionCreate'
+import { changeInputAction, addItemAction, delItemAction, getMyListAction, getListAction, getTodoList } from './store/actionCreate'
 import TodoListUI from './TodoListUI'
 
 class TodoList extends Component {
@@ -19,6 +19,7 @@ class TodoList extends Component {
 
             <TodoListUI
                 // 向子组件传值、传递方法
+                key={this.state.list.length}
                 placeholderValue={this.state.placeholderValue}
                 changeInputValue={this.changeInputValue}
                 clickBtn={this.clickBtn}
@@ -28,8 +29,14 @@ class TodoList extends Component {
         )
     }
     componentDidMount() {
+        // saga 用法
         // 获取action
-        const action = getMyListAction()
+        // const action = getMyListAction()
+
+
+        //thunk用法
+        const action = getTodoList()
+
         // 发出action
         store.dispatch(action)
     }

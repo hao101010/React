@@ -6,7 +6,7 @@ class Calculator extends Component {
         super(props);
         this.state = {
             temperature: '',
-            scale: 'c'
+            scale: ''
         }
         this.toCelsius = this.toCelsius.bind(this)
         this.toFahrenheit = this.toFahrenheit.bind(this)

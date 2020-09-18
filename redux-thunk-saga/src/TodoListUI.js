@@ -9,7 +9,7 @@ class TodoListUI extends Component {
                     <Input
                         placeholder={this.props.placeholderValue}
                         style={{ width: '250px', marginRight: '20px' }}
-                        value={this.props.placeholderValue}
+                        // value={this.props.placeholderValue}
                         onChange={this.props.changeInputValue} />
                     <Button
                         type="primary"

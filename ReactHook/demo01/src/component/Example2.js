@@ -10,6 +10,7 @@ function Exmaple2() {
             <p>性别：{sex}</p>
             <p>工作：{work}</p>
         </div>
+
     )
 }
 

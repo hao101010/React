@@ -12,6 +12,7 @@ export default (state = defaultState, action) => {
     // console.log(state, action)
     // reducer内只能接收到state，不能对state进行修改
     let newState = JSON.parse(JSON.stringify(state))
+    // console.log(action)
     switch (action.type) {
         case 'changeInput':
             newState.placeholderValue = action.value
@@ -19,10 +20,11 @@ export default (state = defaultState, action) => {
         case 'addItem':
             if (newState.placeholderValue) {
                 newState.list.push(newState.placeholderValue)
+                newState.placeholderValue = ''
             } else {
                 alert('输入为空')
             }
-            newState.placeholderValue = ''
+
             return newState
         case 'delItem':
             newState.list.splice(action.index, 1)
